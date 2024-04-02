@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext } from 'react'
 import { AuthContext } from './AuthProvider'
 import { Link, useNavigate } from 'react-router-dom'
@@ -6,26 +7,26 @@ const Logout = () => {
     const auth=useContext(AuthContext)
     const navigate=useNavigate()
 
-    const handleLogout=()=>{
+    const handleLogout=() => {
         auth.handleLogout()
-        navigate("/",{state:{message: "You have been logged out!"}})
+        navigate('/', { state:{ message: 'You have been logged out!' } })
     }
     const isLoggedIn=auth.user!==null
-  return (
-    <>
-        <li>
-            <Link className='dropdown-item' to={"/profile"}>
+    return (
+        <>
+            <li>
+                <Link className='dropdown-item' to={'/profile'}>
                 Profile
-            </Link>
-        </li>
-        <li>
-            <hr className='dropdown-divider'/>
-        </li>
-        <button className='dropdown-item' onClick={handleLogout}>
+                </Link>
+            </li>
+            <li>
+                <hr className='dropdown-divider'/>
+            </li>
+            <button className='dropdown-item' onClick={handleLogout}>
             Logout
-        </button>
-    </>
-  )
+            </button>
+        </>
+    )
 }
 
 export default Logout
