@@ -9,7 +9,7 @@ export const getHeader=() => {
     const token=localStorage.getItem('token')
     return {
         Authorization:`Bearer ${token}`,
-        'Content-Type':'application/json'
+        'Content-Type':'multipart/form-data'
     }
 }
 
@@ -19,7 +19,6 @@ export async function addRoom(photo, roomType, roomPrice) {
     formData.append('photo', photo)
     formData.append('roomType', roomType)
     formData.append('roomPrice', roomPrice)
-
     const response=await api.post('/rooms/add/new-room', formData, {
         headers:getHeader()
     })
